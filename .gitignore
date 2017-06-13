@@ -10,3 +10,7 @@ bower_components/angular/
 bower_components/jquery/
 
 bower_components/materialize/
+
+\.project
+
+\.settings/
