@@ -14,3 +14,15 @@ bower_components/materialize/
 \.project
 
 \.settings/
+
+WebContent/bower_components/materialize/tests/spec/scrollFire/
+
+WebContent/bower_components/angular-resource/
+
+WebContent/bower_components/angular-route/
+
+WebContent/bower_components/angular/
+
+WebContent/bower_components/jquery/
+
+WebContent/bower_components/materialize/
