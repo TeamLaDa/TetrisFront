@@ -1,0 +1,57 @@
+<section ng-controller="scoreController">
+
+  <!-- Affichage des meilleurs scores du joueur connecté -->
+  <h2>Vos meilleurs scores</h2>
+
+  <table class="striped centered">
+  	<thead>
+  		<tr>
+  			<th>Nom du joueur</th>
+  			<th>Points obtenus</th>
+  			<th>Nombre de lignes</th>
+  			<th>Niveau atteint</th>
+  		</tr>
+  	</thead>
+
+  	<tbody>
+  		<tr>
+  			<td>joueur1</td>
+  			<td>500</td>
+  			<td>25</td>
+  			<td>2</td>
+  		</tr>
+  	</tbody>
+  </table>
+
+
+  <br></br>
+
+
+
+
+
+  <!-- Affichage des meilleurs scores du jeu -->
+  <h2>Meilleurs scores du jeu</h2>
+
+  <table class="striped centered">
+  	<thead>
+  		<tr>
+  			<th>Classement</th>
+  			<th>Nom du joueur</th>
+  			<th>Points obtenus</th>
+  			<th>Nombre de lignes</th>
+  			<th>Niveau atteint</th>
+  		</tr>
+  	</thead>
+
+  	<tbody>
+  		<tr ng-repeat="score in scores | orderBy: ['-points','-lignes'] | limitTo:10">
+  			<td>{{ $index + 1 }}</td>
+  			<td>{{ score.joueur.username }}</td>
+  			<td>{{ score.points }}</td>
+  			<td>{{ score.lignes }}</td>
+  			<td>{{ score.niveau }}</td>
+  		</tr>
+  	</tbody>
+  </table>
+</section>
