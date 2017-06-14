@@ -13,7 +13,7 @@ app.controller("partieController", function($scope, Page, $routeParams, PartieRe
 	$scope.jouerNewPartie = function() {
 		PartieRessource.add();
 
-		$location.path('/');
+		$location.path('/tetris');
 	}
 
 
