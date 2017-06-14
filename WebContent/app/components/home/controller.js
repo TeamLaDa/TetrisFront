@@ -1,13 +1,21 @@
 var app = angular.module("TetrisFront");
 
 
-app.controller("homeController", function($scope, Page, loginF) {
+app.controller("homeController", function($scope, Page, loginF, $location) {
 	Page.setTitle("Accueil");
 
-	$scope.usernameHome = loginF.username;
+	$scope.usernameHome = loginF.getUsername();
 
 	$scope.quiEstCe = function() {
 		HomeRessource.get();
+	}
+
+	var username = loginF.getUsername;
+
+	$scope.logout = function() {
+		loginF.setUsername("");
+
+		$location.path('/login');
 	}
 });
 

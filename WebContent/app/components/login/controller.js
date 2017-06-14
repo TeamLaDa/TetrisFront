@@ -12,14 +12,20 @@ app.controller("loginController", function($scope, Page, $routeParams, LoginRess
 		password: ""
 	};
 
+	$scope.usernameHome = loginF.getUsername();
+
+	$scope.wrong_login = false;
+
 	$scope.connection = function() {
+
+		$scope.wrong_login = true;
 
 		var result = LoginRessource.save(this.user, function(){
 			if (result === undefined) {
 				$location.path('/login');
 
 			} else {
-				loginF.username = $scope.user.username;
+				loginF.setUsername($scope.user.username);
 				$location.path('/');
 			}
 		});
