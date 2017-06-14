@@ -31,7 +31,7 @@ app.controller("loginController", function($scope, Page, $routeParams, LoginRess
 
 			} else {
 				loginF.setUsername($scope.user.username);
-				loginF.setUser(result.username,result.nom,result.prenom,result.id);
+				loginF.setUser(result.username,result.id);
 				$location.path('/');
 			}
 		});

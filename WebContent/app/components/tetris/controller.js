@@ -1,7 +1,7 @@
 var app = angular.module("TetrisFront");
 
 
-app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, tetrisScore, ScoreRessource) {
+app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, tetrisScore, ScoreRessource, loginF) {
 	Page.setTitle("Jouer");
 
 	$scope.autoTetris = null;
@@ -115,14 +115,16 @@ app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, t
 	 * Interception de la fin d'une partie - gameOver
 	 */
 	angular.element(tetris).on('gameOver', function() {
+		angular.element(tetris).off('gameOver');
+			alert("Game Over");
 
 			var score = {
 				points : tetrisScore.points,
 				lignes : tetrisScore.lines,
 				niveau : tetrisScore.level,
-				joueur : loginF.getUser,
+				joueur : loginF.getUser(),
 				partie : {
-					id: this.id
+					id: 1
 				}
 			}
 

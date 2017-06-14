@@ -5,10 +5,10 @@ var app = angular.module("TetrisFront");
  */
 app.factory("loginF", function() {
 
-  var user = function(){
-    username = "";
-    id = "";
-  }
+  var user = {
+    username: "",
+    id: ""
+  };
 
   return {
     setUsername : function(_username) {
@@ -19,6 +19,8 @@ app.factory("loginF", function() {
       user.id = _id;
     },
     getUser : function() {
+      console.log(user);
+      console.log("getUser");
       return user;
     },
     getUsername : function() {
