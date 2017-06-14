@@ -16,6 +16,8 @@ app.controller("loginController", function($scope, Page, $routeParams, LoginRess
 
 	$scope.wrong_login = false;
 
+
+	// Fonction permettant de se connecter
 	$scope.connection = function() {
 
 		$scope.wrong_login = true;
