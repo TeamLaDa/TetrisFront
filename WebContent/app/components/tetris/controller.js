@@ -1,7 +1,7 @@
 var app = angular.module("TetrisFront");
 
 
-app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, tetrisScore) {
+app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, tetrisScore, ScoreRessource) {
 	Page.setTitle("Jouer");
 
 	$scope.autoTetris = null;
@@ -103,6 +103,31 @@ app.controller("tetrisController", function($scope, Page, tetris, tetrisGhost, t
 
 		angular.element('.board .tetrimino').remove();
 		$scope.nextMove();
+	});
+
+
+
+
+
+
+
+	/*
+	 * Interception de la fin d'une partie - gameOver
+	 */
+	angular.element(tetris).on('gameOver', function() {
+
+			var score = {
+				points : tetrisScore.points,
+				lignes : tetrisScore.lines,
+				niveau : tetrisScore.level,
+				joueur : loginF.getUser,
+				partie : {
+					id: this.id
+				}
+			}
+
+			ScoreRessource.add(score);
+
 	});
 
 
