@@ -9,7 +9,10 @@ app.controller("loginController", function($scope, Page, $routeParams, LoginRess
 
 	$scope.user = {
 		username: "",
-		password: ""
+		password: "",
+		id: "",
+		nom: "",
+		prenom: ""
 	};
 
 	$scope.usernameHome = loginF.getUsername();
@@ -28,6 +31,7 @@ app.controller("loginController", function($scope, Page, $routeParams, LoginRess
 
 			} else {
 				loginF.setUsername($scope.user.username);
+				loginF.setUser(result.username,result.nom,result.prenom,result.id);
 				$location.path('/');
 			}
 		});
