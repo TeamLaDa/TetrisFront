@@ -91,8 +91,8 @@ app.provider("tetris", function() {
 				var myBloc = angular.element('<div class="bloc" />');
 
 				myBloc.css('background-color', that.tetrimino.data('source').couleur);
-				myBloc.css('top', sizeOfTetriminos * bloc.positionY);
-				myBloc.css('left', sizeOfTetriminos * bloc.positionX);
+				myBloc.css('top', sizeOfTetriminos * (bloc.positionY));
+				myBloc.css('left', sizeOfTetriminos * (bloc.positionX));
 
 				that.tetrimino.append(myBloc);
 			});
@@ -376,3 +376,12 @@ app.provider("tetris", function() {
 		return new Tetris(tetriminoResource);
 	};
 });
+
+
+/*
+ * Crée un factory permettant de récupérer l'URL
+ */
+app.factory('tetriminoResource', ['$resource', 'API_URL', function($resource, API_URL) {
+  return $resource(API_URL + 'tetrimino', null, {
+  });
+}]);
