@@ -1,0 +1,38 @@
+<section ng-controller="partieController">
+
+    <!-- Affichage des parties en cours -->
+    <ul class="collapsible" data-collapsible="accordion">
+  		<li ng-repeat="partie in parties">
+  			<div class="collapsible-header">Partie #{{ partie.id }}</div>
+  			<div class="collapsible-body raw">
+
+           <!-- Bouton permettant de jouer -->
+           <div class="float right">
+             <form method="get" action="tetris">
+               <button class="btn waves-effect waves-light" type="submit">Jouer</button>
+               <input type="hidden" value={{ partie.id }} />
+             </form>
+           </div>
+
+  				 <!-- Affiche l'username du joueurA -->
+           <div>Joueur A : {{ partie.joueurA.username }}<div>
+
+           <!-- Affiche l'username du joueurB -->
+           <div>Joueur B : {{ partie.joueurB.username }}<div>
+  			</div>
+  		</li>
+  	</ul>
+
+
+
+  <!-- Bouton permettant l'ajout d'une partie -->
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  	<form method="PUT" action="{{ URL_API + partie }}">
+  		<button class="btn-floating btn-large waves-effect waves-light red"
+  			ng-click="jouerNewPartie()">
+  			<i class="material-icons">add</i>
+  		</button>
+  	</form>
+  </div>
+
+</section>

@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="input-field col s6">
+		<i class="material-icons prefix">account_circle</i>
+		<input class="validate" type="text" id="username" ng-model="user.username" />
+		<label for="username" data-error="" data-success="">Nom d'utilisateur</label>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="input-field col s6">
+		<i class="material-icons prefix">vpn_key</i>
+		<input class="validate" type="password" id="password" ng-model="user.password" />
+		<label for="password">Mot de passe</label>
+	</div>
+</div>
+
+<button id="submitLogin" class="btn waves-effect waves-light" ng-click="connection()">
+	S'authentifier<i class="material-icons right">send</i>
+</button>

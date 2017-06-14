@@ -5,7 +5,7 @@ var app = angular.module("TetrisFront");
  * Crée le controller pour la page score
  */
 app.controller("scoreController", function($scope, Page, $routeParams, ScoreRessource) {
-	Page.setTitle("Score");
+	Page.setTitle("Meilleurs scores");
 
   $scope.scores = ScoreRessource.query();
 
